@@ -1,52 +1,198 @@
-<!-- Skills Section -->
-<section id="skills">
-  <h2>Skills</h2>
-  <div class="skill">
-    <svg class="circle" width="120" height="120">
-      <circle cx="60" cy="60" r="50" stroke="#1E293B" stroke-width="10" fill="none"/>
-      <circle cx="60" cy="60" r="50" stroke="#06B6D4" stroke-width="10" fill="none" stroke-dasharray="314" stroke-dashoffset="314"/>
-      <text x="50%" y="50%" text-anchor="middle" dy="8" fill="#F8FAFC" font-size="16">Docker</text>
-    </svg>
-  </div>
-  <div class="skill">
-    <svg class="circle" width="120" height="120">
-      <circle cx="60" cy="60" r="50" stroke="#1E293B" stroke-width="10" fill="none"/>
-      <circle cx="60" cy="60" r="50" stroke="#06B6D4" stroke-width="10" fill="none" stroke-dasharray="314" stroke-dashoffset="314"/>
-      <text x="50%" y="50%" text-anchor="middle" dy="8" fill="#F8FAFC" font-size="16">Kubernetes</text>
-    </svg>
-  </div>
-  <div class="skill">
-    <svg class="circle" width="120" height="120">
-      <circle cx="60" cy="60" r="50" stroke="#1E293B" stroke-width="10" fill="none"/>
-      <circle cx="60" cy="60" r="50" stroke="#06B6D4" stroke-width="10" fill="none" stroke-dasharray="314" stroke-dashoffset="314"/>
-      <text x="50%" y="50%" text-anchor="middle" dy="8" fill="#F8FAFC" font-size="16">AWS</text>
-    </svg>
-  </div>
-  <div class="skill">
-    <svg class="circle" width="120" height="120">
-      <circle cx="60" cy="60" r="50" stroke="#1E293B" stroke-width="10" fill="none"/>
-      <circle cx="60" cy="60" r="50" stroke="#06B6D4" stroke-width="10" fill="none" stroke-dasharray="314" stroke-dashoffset="314"/>
-      <text x="50%" y="50%" text-anchor="middle" dy="8" fill="#F8FAFC" font-size="16">Terraform</text>
-    </svg>
-  </div>
-</section>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dasthu | DevOps Engineer</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth;}
+    body{font-family:'Inter',sans-serif;background:#0F172A;color:#F8FAFC;overflow-x:hidden;}
+    a{text-decoration:none;color:inherit;}
+    
+    nav{position:fixed;top:0;width:100%;background:#0F172A;display:flex;justify-content:center;gap:30px;padding:15px 0;z-index:1000;}
+    nav a{color:#F8FAFC;font-weight:600;transition:0.3s;}
+    nav a:hover{color:#14B8A6;}
+    
+    section{padding:100px 20px;opacity:0;transform:translateY(50px);transition:all 1s ease-out;}
+    section.visible{opacity:1;transform:translateY(0);}
+    h1,h2,h3{font-family:'Montserrat',sans-serif;}
+    h1{font-size:3rem;margin-bottom:10px;}
+    h2{font-size:2rem;margin-bottom:20px;color:#14B8A6;}
+    p{line-height:1.6;color:#CBD5E1;}
+    
+    #hero{display:flex;flex-direction:column;align-items:center;justify-content:center;height:100vh;text-align:center;background:linear-gradient(135deg,#1E3A8A,#0F172A);}
+    #hero button{margin-top:20px;padding:12px 25px;border:none;border-radius:5px;background:#14B8A6;color:#0F172A;font-weight:600;cursor:pointer;transition:0.3s;}
+    #hero button:hover{background:#06B6D4;}
+    
+    #about{display:flex;flex-direction:column;align-items:center;text-align:center;}
+    #about .tech-icons{display:flex;flex-wrap:wrap;justify-content:center;gap:15px;margin-top:20px;}
+    #about .tech-icons i{font-size:2rem;color:#14B8A6;transition:transform 0.3s;}
+    #about .tech-icons i:hover{transform:scale(1.3);}
+    
+    #projects{display:flex;flex-wrap:wrap;gap:20px;justify-content:center;}
+    .project-card{background:#1E293B;padding:20px;border-radius:10px;width:300px;transition:0.3s;position:relative;overflow:hidden;}
+    .project-card:hover{transform:translateY(-5px);box-shadow:0 5px 20px rgba(20,184,166,0.5);}
+    .project-card h3{margin-bottom:10px;color:#14B8A6;}
+    .project-card p{font-size:0.9rem;color:#CBD5E1;}
+    .project-card .tech{margin-top:10px;font-size:0.8rem;color:#94A3B8;}
+    
+    .terminal{background:#0F172A;border:1px solid #14B8A6;padding:15px;border-radius:8px;font-family:monospace;color:#14B8A6;margin-top:15px;}
+    .terminal span{color:#06B6D4;}
+    .terminal::after{content:"";display:block;width:0;animation:blink 1s steps(2,start) infinite;border-right:2px solid #14B8A6;margin-top:-2px;}
+    @keyframes blink{0%,50%,100%{border-color:#14B8A6;}25%,75%{border-color:transparent;}}
+    
+    #skills{display:flex;flex-wrap:wrap;justify-content:center;gap:20px;}
+    .skill{width:150px;text-align:center;}
+    .skill svg circle:nth-child(2){transition:stroke-dashoffset 2s ease-out;transform:rotate(-90deg);transform-origin:center;}
+    #blog{display:flex;flex-wrap:wrap;gap:20px;justify-content:center;}
+    .blog-card{background:#1E293B;padding:20px;border-radius:10px;width:300px;transition:0.3s;}
+    .blog-card:hover{transform:translateY(-5px);box-shadow:0 5px 20px rgba(20,184,166,0.5);}
+    .blog-card h3{margin-bottom:10px;color:#14B8A6;}
+    .blog-card p{font-size:0.9rem;color:#CBD5E1;}
+    
+    #contact{text-align:center;}
+    #contact a{display:inline-block;margin:10px;padding:12px 20px;border-radius:5px;background:#14B8A6;color:#0F172A;font-weight:600;transition:0.3s;}
+    #contact a:hover{background:#06B6D4;}
+    
+    @media(max-width:768px){h1{font-size:2.2rem;}h2{font-size:1.5rem;}.project-card,.blog-card{width:90%;}}
+  </style>
+</head>
+<body>
 
-<script>
-  // Animate skill circles on scroll
-  const skillSvgs = document.querySelectorAll('.skill svg circle:nth-child(2)');
-  const skillSection = document.getElementById('skills');
-  const skillObserver = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if(entry.isIntersecting){
-        skillSvgs.forEach((circle, i) => {
-          let percent = [90, 85, 80, 75][i]; // skill percentages
-          let offset = 314 - (314 * percent / 100);
-          circle.style.transition = 'stroke-dashoffset 2s ease-out';
-          circle.style.strokeDashoffset = offset;
-        });
-        skillObserver.unobserve(skillSection);
-      }
-    });
-  }, { threshold: 0.5 });
-  skillObserver.observe(skillSection);
-</script>
+  <nav>
+    <a href="#hero">Home</a>
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#skills">Skills</a>
+    <a href="#blog">Blog</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <section id="hero" class="visible">
+    <h1>Dasthu</h1>
+    <h2>DevOps Engineer | CI/CD | Kubernetes | Cloud Automation</h2>
+    <button onclick="document.getElementById('projects').scrollIntoView({behavior:'smooth'})">View Projects</button>
+  </section>
+
+  <section id="about">
+    <h2>About Me</h2>
+    <p>I'm a passionate DevOps engineer with experience in building scalable infrastructure, automating pipelines, and deploying cloud-native applications. I thrive on solving complex problems and optimizing deployment processes.</p>
+    <div class="tech-icons">
+      <i class="fab fa-aws"></i>
+      <i class="fab fa-docker"></i>
+      <i class="fas fa-server"></i>
+      <i class="fab fa-github"></i>
+      <i class="fas fa-code"></i>
+      <i class="fab fa-linux"></i>
+      <i class="fas fa-network-wired"></i>
+    </div>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="project-card">
+      <h3>Kubernetes Deployment Automation</h3>
+      <p>Automated deployment of microservices with CI/CD pipelines using Jenkins and Kubernetes.</p>
+      <div class="tech">Kubernetes | Jenkins | Docker | GitHub</div>
+      <div class="terminal">
+        $ kubectl apply -f deployment.yaml<br>
+        <span>deployment.apps/my-service created</span>
+      </div>
+    </div>
+    <div class="project-card">
+      <h3>Cloud Infrastructure Setup</h3>
+      <p>Provisioned scalable AWS infrastructure using Terraform and configured monitoring tools.</p>
+      <div class="tech">AWS | Terraform | Prometheus | Grafana</div>
+      <div class="terminal">
+        $ terraform apply<br>
+        <span>Apply complete! Resources: 5 added</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <h2>Skills</h2>
+    <div class="skill">
+      <svg width="120" height="120">
+        <circle cx="60" cy="60" r="50" stroke="#1E293B" stroke-width="10" fill="none"/>
+        <circle cx="60" cy="60" r="50" stroke="#06B6D4" stroke-width="10" fill="none" stroke-dasharray="314" stroke-dashoffset="314"/>
+        <text x="50%" y="50%" text-anchor="middle" dy="8" fill="#F8FAFC" font-size="16">Docker</text>
+      </svg>
+    </div>
+    <div class="skill">
+      <svg width="120" height="120">
+        <circle cx="60" cy="60" r="50" stroke="#1E293B" stroke-width="10" fill="none"/>
+        <circle cx="60" cy="60" r="50" stroke="#06B6D4" stroke-width="10" fill="none" stroke-dasharray="314" stroke-dashoffset="314"/>
+        <text x="50%" y="50%" text-anchor="middle" dy="8" fill="#F8FAFC" font-size="16">Kubernetes</text>
+      </svg>
+    </div>
+    <div class="skill">
+      <svg width="120" height="120">
+        <circle cx="60" cy="60" r="50" stroke="#1E293B" stroke-width="10" fill="none"/>
+        <circle cx="60" cy="60" r="50" stroke="#06B6D4" stroke-width="10" fill="none" stroke-dasharray="314" stroke-dashoffset="314"/>
+        <text x="50%" y="50%" text-anchor="middle" dy="8" fill="#F8FAFC" font-size="16">AWS</text>
+      </svg>
+    </div>
+    <div class="skill">
+      <svg width="120" height="120">
+        <circle cx="60" cy="60" r="50" stroke="#1E293B" stroke-width="10" fill="none"/>
+        <circle cx="60" cy="60" r="50" stroke="#06B6D4" stroke-width="10" fill="none" stroke-dasharray="314" stroke-dashoffset="314"/>
+        <text x="50%" y="50%" text-anchor="middle" dy="8" fill="#F8FAFC" font-size="16">Terraform</text>
+      </svg>
+    </div>
+  </section>
+
+  <section id="blog">
+    <h2>Blog</h2>
+    <div class="blog-card">
+      <h3>Automating Kubernetes Deployments</h3>
+      <p>Learn how to automate microservices deployment using CI/CD pipelines and Kubernetes best practices.</p>
+    </div>
+    <div class="blog-card">
+      <h3>Terraform for Cloud Infrastructure</h3>
+      <p>A practical guide to provisioning and managing AWS resources using Terraform scripts and modules.</p>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact Me</h2>
+    <p>Let's connect and build something awesome!</p>
+    <a href="mailto:your.email@example.com">Email Me</a>
+    <a href="https://github.com/yourusername" target="_blank">GitHub</a>
+    <a href="https://linkedin.com/in/yourusername" target="_blank">LinkedIn</a>
+    <a href="https://medium.com/@yourusername" target="_blank">Medium</a>
+  </section>
+
+  <script>
+    // Fade-in on scroll
+    const sections = document.querySelectorAll('section');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.2 });
+    sections.forEach(sec => observer.observe(sec));
+
+    // Skill circle animation
+    const skillSvgs = document.querySelectorAll('#skills svg circle:nth-child(2)');
+    const percentages = [90,85,80,75]; // Docker, Kubernetes, AWS, Terraform
+    const skillSection = document.getElementById('skills');
+    const skillObserver = new IntersectionObserver(entries=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){
+          skillSvgs.forEach((circle,i)=>{
+            let offset = 314 - (314 * percentages[i]/100);
+            circle.style.strokeDashoffset = offset;
+          });
+          skillObserver.unobserve(skillSection);
+        }
+      });
+    },{threshold:0.5});
+    skillObserver.observe(skillSection);
+  </script>
+</body>
+</html>
