@@ -83,6 +83,7 @@
       backdrop-filter: blur(6px);
       box-shadow: 0 6px 20px rgba(0,0,0,0.3);
       animation: fadeIn 1s ease-in-out;
+      position: relative;
     }
     section h2 {
       text-align: center;
@@ -90,14 +91,33 @@
       color: #4CAF50;
     }
 
-    /* Stylish Project Section with DevOps Background */
+    /* Projects Section with DevOps Background and Overlay */
     #projects {
       background: url('https://images.unsplash.com/photo-1612831455545-4785a4d36b0c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc3M3wwfDF8c2VlfHx8fHx8fHwxNjg1ODc5MzQy&ixlib=rb-4.0.3&q=80&w=1080') no-repeat center center/cover;
       border: 2px solid rgba(76,175,80,0.4);
       box-shadow: 0 0 30px rgba(76,175,80,0.3);
+      overflow: hidden;
+    }
+
+    .projects-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(120deg, rgba(76,175,80,0.1) 0%, rgba(255,255,255,0.05) 50%, rgba(76,175,80,0.1) 100%);
+      animation: overlayMove 10s linear infinite;
+      pointer-events: none;
+    }
+
+    @keyframes overlayMove {
+      0% { transform: translateX(-100%); }
+      50% { transform: translateX(100%); }
+      100% { transform: translateX(-100%); }
     }
 
     .project-card {
+      position: relative;
       background: rgba(0,0,0,0.5);
       margin: 15px;
       padding: 20px;
@@ -106,41 +126,28 @@
       flex: 1 1 280px;
       transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
       border: 1px solid rgba(76,175,80,0.3);
+      z-index: 2;
     }
+
     .project-card:hover {
       transform: translateY(-8px) scale(1.05);
       box-shadow: 0 12px 30px rgba(76,175,80,0.5);
       background: rgba(76,175,80,0.1);
     }
-    .project-card h3 { margin-top: 0; color: #fff; }
 
-    .projects {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
+    .projects { display: flex; flex-wrap: wrap; justify-content: center; position: relative; z-index: 2; }
 
     /* Tech Stack */
-    .stack {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
+    .stack { display: flex; flex-wrap: wrap; justify-content: center; }
     .stack img {
       width: 60px;
       margin: 15px;
       transition: transform 0.3s, box-shadow 0.3s;
       filter: drop-shadow(0 0 5px rgba(76,175,80,0.5));
     }
-    .stack img:hover {
-      transform: scale(1.25);
-      box-shadow: 0 0 20px #4CAF50;
-    }
+    .stack img:hover { transform: scale(1.25); box-shadow: 0 0 20px #4CAF50; }
 
-    .social-links {
-      text-align: center;
-      margin-top: 20px;
-    }
+    .social-links { text-align: center; margin-top: 20px; }
     .social-links a {
       margin: 0 12px;
       font-size: 30px;
@@ -148,11 +155,7 @@
       text-decoration: none;
       transition: transform 0.3s, color 0.3s, text-shadow 0.3s;
     }
-    .social-links a:hover {
-      transform: scale(1.3) rotate(-5deg);
-      color: #4CAF50;
-      text-shadow: 0 0 12px #4CAF50;
-    }
+    .social-links a:hover { transform: scale(1.3) rotate(-5deg); color: #4CAF50; text-shadow: 0 0 12px #4CAF50; }
 
     footer {
       text-align: center;
@@ -165,15 +168,10 @@
       border-radius: 8px;
     }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 
-    @media(max-width:700px) {
-      .project-card { flex: 1 1 90%; }
-      .stack img { width: 50px; margin: 12px; }
-    }
+    @media(max-width:700px) { .project-card { flex: 1 1 90%; } .stack img { width: 50px; margin: 12px; } }
+
   </style>
 </head>
 <body>
@@ -203,6 +201,7 @@ Welcome to my portfolio, where you can explore my projects and the technologies 
   <!-- Projects Section -->
   <section id="projects">
     <h2>My Projects</h2>
+    <div class="projects-overlay"></div>
     <div class="projects" id="project-list">Loading projects...</div>
   </section>
 
@@ -286,13 +285,4 @@ Welcome to my portfolio, where you can explore my projects and the technologies 
         "onclick": { "enable": true, "mode": "push" }
       },
       "modes": {
-        "grab": { "distance": 180, "line_linked": { "opacity": 0.6 } },
-        "push": { "particles_nb": 4 }
-      }
-    },
-    "retina_detect": true
-  });
-  </script>
-
-</body>
-</html>
+        "grab":
