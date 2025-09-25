@@ -18,29 +18,25 @@
       animation: gradientBG 15s ease infinite;
       color: #eee;
       line-height: 1.6;
-      position: relative;
       overflow-x: hidden;
     }
 
-    /* Gradient animation */
     @keyframes gradientBG {
       0% { background-position: 0% 50%; }
       50% { background-position: 100% 50%; }
       100% { background-position: 0% 50%; }
     }
 
-    /* Particle background */
     #particles-js {
       position: fixed;
       width: 100%;
       height: 100%;
-      z-index: -1; /* keep behind all content */
+      z-index: -1;
       top: 0;
       left: 0;
       pointer-events: none;
     }
 
-    /* Header */
     header {
       background: rgba(35,37,38,0.8);
       color: #fff;
@@ -62,8 +58,6 @@
       transform: scale(1.15);
       box-shadow: 0 0 25px #4CAF50;
     }
-    header h1 { margin: 10px 0 5px; }
-    header p { margin: 8px 0; }
     nav { margin-top: 15px; }
     nav a {
       margin: 0 15px;
@@ -77,7 +71,6 @@
       text-shadow: 0 0 10px #4CAF50;
     }
 
-    /* Sections */
     section {
       padding: 50px 20px;
       max-width: 1100px;
@@ -94,32 +87,39 @@
       color: #4CAF50;
     }
 
-    /* Project & Blog Cards */
-    .project-card, .blog-card {
-      background: rgba(255,255,255,0.1);
+    /* Stylish Project Section */
+    #projects {
+      background: linear-gradient(135deg, rgba(76,175,80,0.2), rgba(0,0,0,0.6));
+      border: 2px solid rgba(76,175,80,0.4);
+      box-shadow: 0 0 30px rgba(76,175,80,0.3);
+    }
+
+    .project-card {
+      background: rgba(255,255,255,0.08);
       margin: 15px;
       padding: 20px;
       border-radius: 12px;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+      box-shadow: 0 3px 12px rgba(0,0,0,0.3);
       flex: 1 1 280px;
       transition: transform 0.3s, box-shadow 0.3s;
+      border: 1px solid rgba(76,175,80,0.3);
     }
-    .project-card:hover, .blog-card:hover {
-      transform: translateY(-8px) scale(1.02);
-      box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+    .project-card:hover {
+      transform: translateY(-8px) scale(1.05);
+      box-shadow: 0 12px 30px rgba(76,175,80,0.5);
+      background: rgba(76,175,80,0.1);
     }
-    .project-card h3, .blog-card h3 {
+    .project-card h3 {
       margin-top: 0;
       color: #fff;
     }
 
-    .projects, .blogs, .stack {
+    .projects {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
     }
 
-    /* Tech Stack logos */
     .stack img {
       width: 60px;
       margin: 15px;
@@ -131,7 +131,6 @@
       box-shadow: 0 0 20px #4CAF50;
     }
 
-    /* Social Links */
     .social-links {
       text-align: center;
       margin-top: 20px;
@@ -148,14 +147,7 @@
       color: #4CAF50;
       text-shadow: 0 0 12px #4CAF50;
     }
-    .fab.fa-medium { color: #00ab6c; }
-    .fab.fa-medium:hover {
-      transform: scale(1.4) rotate(10deg);
-      color: #00ab6c;
-      text-shadow: 0 0 15px #00ab6c;
-    }
 
-    /* Footer */
     footer {
       text-align: center;
       padding: 20px;
@@ -167,40 +159,27 @@
       border-radius: 8px;
     }
 
-    /* Animations */
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
     }
 
-    /* Responsive */
     @media(max-width:700px) {
-      .project-card, .blog-card { flex: 1 1 90%; }
+      .project-card { flex: 1 1 90%; }
       .stack img { width: 50px; margin: 12px; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Particle Background -->
   <div id="particles-js"></div>
 
   <header>
-    <img src="Dastagiri,profile.png.jpg" alt="Dastagiri Photo"> <!-- Replace with your photo -->
-    <h1>Hi, I'm Dastagiri </h1>
+    <img src="Dastagiri,profile.png.jpg" alt="Dastagiri Photo">
+    <h1>Hi, I'm Dastagiri</h1>
     <p>DevOps Engineer | Sharing 30 Days of DevOps 🚀</p>
-    <p>"Hi! I'm Dastaagiri, a passionate DevOps Engineer based in Bangalore with over 4+ years of experience in building, automating, and scaling cloud infrastructure. My journey started with a love for problem-solving and technology, which gradually evolved into expertise in DevOps practices, cloud platforms, and CI/CD pipelines.
-
-I specialize in creating robust, scalable, and automated systems using technologies such as Docker, Kubernetes, Terraform, Jenkins, and Git. I thrive in bridging the gap between development and operations, ensuring that software delivery is seamless, efficient, and highly reliable.
-
-Throughout my career, I’ve contributed to projects ranging from automating deployment pipelines to implementing infrastructure-as-code, optimizing cloud performance, and maintaining high-availability systems. I enjoy exploring new tools and frameworks, learning emerging technologies, and sharing my knowledge through blogs and hands-on projects.
-
-When I’m not coding or deploying pipelines, I love to write tech articles, contribute to the DevOps community, and mentor aspiring engineers. My goal is to continuously learn, innovate, and help organizations achieve operational excellence while delivering scalable solutions.
-
-Welcome to my portfolio, where you can explore my projects, blogs, and the technologies I work with daily. Let’s connect, collaborate, and create impactful tech solutions together!"</p>
     <nav>
       <a href="#projects">Projects</a>
-      <a href="#blog">Blog</a>
       <a href="#stack">Tech Stack</a>
       <a href="#contact">Contact</a>
     </nav>
@@ -210,12 +189,6 @@ Welcome to my portfolio, where you can explore my projects, blogs, and the techn
   <section id="projects">
     <h2>My Projects</h2>
     <div class="projects" id="project-list">Loading projects...</div>
-  </section>
-
-  <!-- Blog Section -->
-  <section id="blog">
-    <h2>My Blog / Articles</h2>
-    <div class="blogs" id="blog-list">Loading blogs...</div>
   </section>
 
   <!-- Tech Stack Section -->
@@ -236,7 +209,6 @@ Welcome to my portfolio, where you can explore my projects, blogs, and the techn
     <h2>Connect with Me</h2>
     <div class="social-links">
       <a href="https://github.com/dastagiridev-tech" target="_blank"><i class="fab fa-github"></i></a>
-      <a href="https://medium.com/@dastagiridev" target="_blank"><i class="fab fa-medium"></i></a>
       <a href="http://www.linkedin.com/in/dastagiri-dudekula-891a62383" target="_blank"><i class="fab fa-linkedin"></i></a>
     </div>
   </section>
@@ -245,9 +217,8 @@ Welcome to my portfolio, where you can explore my projects, blogs, and the techn
     <p>© 2025 Dastagiri | Built with ❤️ & DevOps spirit</p>
   </footer>
 
-  <!-- Scripts for GitHub Projects & Medium Blogs -->
+  <!-- GitHub Projects Script -->
   <script>
-    // GitHub Projects
     const githubUser = "dastagiridev-tech";
     const projectList = document.getElementById("project-list");
     fetch(`https://api.github.com/users/${githubUser}/repos?sort=updated`)
@@ -263,24 +234,6 @@ Welcome to my portfolio, where you can explore my projects, blogs, and the techn
             <a href="${repo.html_url}" target="_blank">🔗 View on GitHub</a>
           `;
           projectList.appendChild(card);
-        });
-      });
-
-    // Medium Blogs
-    const mediumUser = "dastagiridev";
-    const blogList = document.getElementById("blog-list");
-    fetch(`https://api.rss2json.com/v1/api.json?rss=https://medium.com/feed/@${mediumUser}`)
-      .then(res => res.json())
-      .then(data => {
-        blogList.innerHTML = "";
-        data.items.slice(0,3).forEach(post => {
-          const card = document.createElement("div");
-          card.className = "blog-card";
-          card.innerHTML = `
-            <h3><i class="fab fa-medium"></i> ${post.title}</h3>
-            <p><a href="${post.link}" target="_blank">Read on Medium</a></p>
-          `;
-          blogList.appendChild(card);
         });
       });
   </script>
