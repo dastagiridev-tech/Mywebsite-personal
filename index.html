@@ -58,6 +58,9 @@
       transform: scale(1.15);
       box-shadow: 0 0 25px #4CAF50;
     }
+
+    header p { margin: 10px 0; }
+
     nav { margin-top: 15px; }
     nav a {
       margin: 0 15px;
@@ -87,21 +90,21 @@
       color: #4CAF50;
     }
 
-    /* Stylish Project Section */
+    /* Stylish Project Section with DevOps Background */
     #projects {
-      background: linear-gradient(135deg, rgba(76,175,80,0.2), rgba(0,0,0,0.6));
+      background: url('https://images.unsplash.com/photo-1612831455545-4785a4d36b0c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc3M3wwfDF8c2VlfHx8fHx8fHwxNjg1ODc5MzQy&ixlib=rb-4.0.3&q=80&w=1080') no-repeat center center/cover;
       border: 2px solid rgba(76,175,80,0.4);
       box-shadow: 0 0 30px rgba(76,175,80,0.3);
     }
 
     .project-card {
-      background: rgba(255,255,255,0.08);
+      background: rgba(0,0,0,0.5);
       margin: 15px;
       padding: 20px;
       border-radius: 12px;
       box-shadow: 0 3px 12px rgba(0,0,0,0.3);
       flex: 1 1 280px;
-      transition: transform 0.3s, box-shadow 0.3s;
+      transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
       border: 1px solid rgba(76,175,80,0.3);
     }
     .project-card:hover {
@@ -109,10 +112,7 @@
       box-shadow: 0 12px 30px rgba(76,175,80,0.5);
       background: rgba(76,175,80,0.1);
     }
-    .project-card h3 {
-      margin-top: 0;
-      color: #fff;
-    }
+    .project-card h3 { margin-top: 0; color: #fff; }
 
     .projects {
       display: flex;
@@ -120,6 +120,12 @@
       justify-content: center;
     }
 
+    /* Tech Stack */
+    .stack {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
     .stack img {
       width: 60px;
       margin: 15px;
@@ -178,6 +184,15 @@
     <img src="Dastagiri,profile.png.jpg" alt="Dastagiri Photo">
     <h1>Hi, I'm Dastagiri</h1>
     <p>DevOps Engineer | Sharing 30 Days of DevOps 🚀</p>
+    <p>"Hi! I'm Dastagiri, a passionate DevOps Engineer based in Bangalore with over 4+ years of experience in building, automating, and scaling cloud infrastructure. My journey started with a love for problem-solving and technology, which gradually evolved into expertise in DevOps practices, cloud platforms, and CI/CD pipelines.
+
+I specialize in creating robust, scalable, and automated systems using technologies such as Docker, Kubernetes, Terraform, Jenkins, and Git. I thrive in bridging the gap between development and operations, ensuring that software delivery is seamless, efficient, and highly reliable.
+
+Throughout my career, I’ve contributed to projects ranging from automating deployment pipelines to implementing infrastructure-as-code, optimizing cloud performance, and maintaining high-availability systems. I enjoy exploring new tools and frameworks, learning emerging technologies, and sharing my knowledge through blogs and hands-on projects.
+
+When I’m not coding or deploying pipelines, I love to write tech articles, contribute to the DevOps community, and mentor aspiring engineers. My goal is to continuously learn, innovate, and help organizations achieve operational excellence while delivering scalable solutions.
+
+Welcome to my portfolio, where you can explore my projects and the technologies I work with daily. Let’s connect, collaborate, and create impactful tech solutions together!"</p>
     <nav>
       <a href="#projects">Projects</a>
       <a href="#stack">Tech Stack</a>
@@ -201,6 +216,14 @@
       <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/linux/linux-original.svg" alt="Linux">
       <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/jenkins/jenkins-original.svg" alt="Jenkins">
       <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/terraform/terraform-original.svg" alt="Terraform">
+      <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/ansible/ansible-original.svg" alt="Ansible">
+      <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/prometheus/prometheus-original.svg" alt="Prometheus">
+      <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/grafana/grafana-original.svg" alt="Grafana">
+      <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/amazonwebservices/amazonwebservices-original.svg" alt="AWS">
+      <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/helm/helm-original.svg" alt="Helm">
+      <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nginx/nginx-original.svg" alt="Nginx">
+      <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="Python">
+      <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/bash/bash-original.svg" alt="Bash">
     </div>
   </section>
 
