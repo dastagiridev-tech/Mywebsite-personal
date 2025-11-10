@@ -1,6 +1,300 @@
-git init
-git add .
-git commit -m "Initial: simple war app"
-git branch -M develop
-git remote add origin git@github.com:you/uk-card-app.git
-git push -u origin develop
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dastagiri DevOps Portfolio</title>
+
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(-45deg, #0f2027, #203a43, #2c5364, #4CAF50);
+      background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite;
+      color: #eee;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    #particles-js {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+    }
+
+    header {
+      background: rgba(35,37,38,0.8);
+      color: #fff;
+      padding: 50px 20px;
+      text-align: center;
+      border-radius: 12px;
+      margin: 20px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+    }
+    header img {
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      border: 4px solid #4CAF50;
+      margin-bottom: 15px;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    header img:hover {
+      transform: scale(1.15);
+      box-shadow: 0 0 25px #4CAF50;
+    }
+
+    header p { margin: 10px 0; }
+
+    nav { margin-top: 15px; }
+    nav a {
+      margin: 0 15px;
+      color: #4CAF50;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s, text-shadow 0.3s;
+    }
+    nav a:hover {
+      color: #fff;
+      text-shadow: 0 0 10px #4CAF50;
+    }
+
+    section {
+      padding: 50px 20px;
+      max-width: 1100px;
+      margin: 40px auto;
+      border-radius: 12px;
+      background: rgba(255,255,255,0.05);
+      backdrop-filter: blur(6px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+      animation: fadeIn 1s ease-in-out;
+    }
+    section h2 {
+      text-align: center;
+      margin-bottom: 25px;
+      color: #4CAF50;
+    }
+
+    /* Stylish Project Section with DevOps Background */
+    #projects {
+      background: url('https://images.unsplash.com/photo-1612831455545-4785a4d36b0c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc3M3wwfDF8c2VlfHx8fHx8fHwxNjg1ODc5MzQy&ixlib=rb-4.0.3&q=80&w=1080') no-repeat center center/cover;
+      border: 2px solid rgba(76,175,80,0.4);
+      box-shadow: 0 0 30px rgba(76,175,80,0.3);
+    }
+
+    .project-card {
+      background: rgba(0,0,0,0.5);
+      margin: 15px;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.3);
+      flex: 1 1 280px;
+      transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
+      border: 1px solid rgba(76,175,80,0.3);
+    }
+    .project-card:hover {
+      transform: translateY(-8px) scale(1.05);
+      box-shadow: 0 12px 30px rgba(76,175,80,0.5);
+      background: rgba(76,175,80,0.1);
+    }
+    .project-card h3 { margin-top: 0; color: #fff; }
+
+    .projects {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    /* Tech Stack */
+    .stack {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .stack img {
+      width: 60px;
+      margin: 15px;
+      transition: transform 0.3s, box-shadow 0.3s;
+      filter: drop-shadow(0 0 5px rgba(76,175,80,0.5));
+    }
+    .stack img:hover {
+      transform: scale(1.25);
+      box-shadow: 0 0 20px #4CAF50;
+    }
+
+    .social-links {
+      text-align: center;
+      margin-top: 20px;
+    }
+    .social-links a {
+      margin: 0 12px;
+      font-size: 30px;
+      color: #eee;
+      text-decoration: none;
+      transition: transform 0.3s, color 0.3s, text-shadow 0.3s;
+    }
+    .social-links a:hover {
+      transform: scale(1.3) rotate(-5deg);
+      color: #4CAF50;
+      text-shadow: 0 0 12px #4CAF50;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: rgba(0,0,0,0.7);
+      color: #aaa;
+      margin-top: 40px;
+      font-size: 14px;
+      letter-spacing: 0.5px;
+      border-radius: 8px;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media(max-width:700px) {
+      .project-card { flex: 1 1 90%; }
+      .stack img { width: 50px; margin: 12px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div id="particles-js"></div>
+
+  <header>
+    <img src="Dastagiri,profile.png.jpg" alt="Dastagiri Photo">
+    <h1>Hi, I'm Dastagiri</h1>
+    <p>“Automating the Future of DevOps ⚡” – futuristic, innovative vibe. 🚀</p>
+    <p>"Hi! I'm Dastagiri, a passionate DevOps Engineer based in Bangalore with over 5+ years of experience in building, automating, and scaling cloud infrastructure. My journey started with a love for problem-solving and technology, which gradually evolved into expertise in DevOps practices, cloud platforms, and CI/CD pipelines.
+
+I specialize in creating robust, scalable, and automated systems using technologies such as Docker, Kubernetes, Terraform, Jenkins, and Git. I thrive in bridging the gap between development and operations, ensuring that software delivery is seamless, efficient, and highly reliable.
+
+Throughout my career, I’ve contributed to projects ranging from automating deployment pipelines to implementing infrastructure-as-code, optimizing cloud performance, and maintaining high-availability systems. I enjoy exploring new tools and frameworks, learning emerging technologies, and sharing my knowledge through blogs and hands-on projects.
+
+When I’m not coding or deploying pipelines, I love to write tech articles, contribute to the DevOps community, and mentor aspiring engineers. My goal is to continuously learn, innovate, and help organizations achieve operational excellence while delivering scalable solutions.
+
+Welcome to my portfolio, where you can explore my projects and the technologies I work with daily. Let’s connect, collaborate, and create impactful tech solutions together!"</p>
+    <nav>
+      <a href="#projects">Projects</a>
+      <a href="#stack">Tech Stack</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Projects Section -->
+  <section id="projects">
+    <h2>My Projects</h2>
+    <div class="projects" id="project-list">Loading projects...</div>
+  </section>
+
+  <!-- Tech Stack Section -->
+  <section id="stack">
+    <h2>Tech Stack ⚡</h2>
+    <div class="stack">
+      <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/docker/docker-original.svg" alt="Docker">
+      <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/kubernetes/kubernetes-plain.svg" alt="Kubernetes">
+      <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/git/git-original.svg" alt="Git">
+      <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/linux/linux-original.svg" alt="Linux">
+      <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/jenkins/jenkins-original.svg" alt="Jenkins">
+      <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/terraform/terraform-original.svg" alt="Terraform">
+      <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/ansible/ansible-original.svg" alt="Ansible">
+      <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/prometheus/prometheus-original.svg" alt="Prometheus">
+      <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/grafana/grafana-original.svg" alt="Grafana">
+      <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/amazonwebservices/amazonwebservices-original.svg" alt="AWS">
+      <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/helm/helm-original.svg" alt="Helm">
+      <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nginx/nginx-original.svg" alt="Nginx">
+      <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="Python">
+      <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/bash/bash-original.svg" alt="Bash">
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <h2>Connect with Me</h2>
+    <div class="social-links">
+      <a href="https://github.com/dastagiridev-tech" target="_blank"><i class="fab fa-github"></i></a>
+      <a href="http://www.linkedin.com/in/dastagiri-dudekula-891a62383" target="_blank"><i class="fab fa-linkedin"></i></a>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 Dastagiri | Built with ❤️ & DevOps spirit</p>
+  </footer>
+
+  <!-- GitHub Projects Script -->
+  <script>
+    const githubUser = "dastagiridev-tech";
+    const projectList = document.getElementById("project-list");
+    fetch(`https://api.github.com/users/${githubUser}/repos?sort=updated`)
+      .then(res => res.json())
+      .then(data => {
+        projectList.innerHTML = "";
+        data.slice(0,6).forEach(repo => {
+          const card = document.createElement("div");
+          card.className = "project-card";
+          card.innerHTML = `
+            <h3><i class="fa-solid fa-code"></i> ${repo.name}</h3>
+            <p>${repo.description || "No description available."}</p>
+            <a href="${repo.html_url}" target="_blank">🔗 View on GitHub</a>
+          `;
+          projectList.appendChild(card);
+        });
+      });
+  </script>
+
+  <!-- Particle.js -->
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <script>
+  particlesJS("particles-js", {
+    "particles": {
+      "number": { "value": 70 },
+      "color": { "value": "#4CAF50" },
+      "shape": { "type": "circle" },
+      "opacity": { "value": 0.4 },
+      "size": { "value": 3 },
+      "line_linked": {
+        "enable": true,
+        "distance": 150,
+        "color": "#4CAF50",
+        "opacity": 0.4,
+        "width": 1
+      },
+      "move": { "enable": true, "speed": 2 }
+    },
+    "interactivity": {
+      "events": {
+        "onhover": { "enable": true, "mode": "grab" },
+        "onclick": { "enable": true, "mode": "push" }
+      },
+      "modes": {
+        "grab": { "distance": 180, "line_linked": { "opacity": 0.6 } },
+        "push": { "particles_nb": 4 }
+      }
+    },
+    "retina_detect": true
+  });
+  </script>
+
+</body>
+</html>
+
+
